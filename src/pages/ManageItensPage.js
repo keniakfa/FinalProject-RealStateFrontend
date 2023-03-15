@@ -15,7 +15,7 @@ const ManageItensPage = props => {
     const headers = {
       'Authorization': 'Bearer ' + token
     }
-    console.log(house)
+    
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/viewhouse/userhouses`, {headers})
             .then(response => {
@@ -46,7 +46,7 @@ const ManageItensPage = props => {
                     <div className="col" key={house._id}>
                         <HouseCard house={house}/>
                         <div className="butons">
-                            <Link type="button" className="btn btn-info btn-sm" to={`/updatehouse`}>Update</Link>
+                            <Link type="button" className="btn btn-info btn-sm" to={`/updatehouse/${id}`}>Update</Link>
                             <button  className="btn btn-danger btn-sm" onClick={() => deleteHouse(house._id)}>Delete</button>
                         </div>
                     </div>
